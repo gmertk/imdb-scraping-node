@@ -21,5 +21,15 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gmertk/imdb-scraping-node/issues"
+  },
+  "dependencies": {
+    "request": "~2.33.0",
+    "cheerio": "~0.13.1",
+    "async": "~0.2.10"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "nodeunit": "~0.8.4"
   }
 }
