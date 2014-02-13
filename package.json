@@ -1,0 +1,25 @@
+{
+  "name": "imdb-parsing",
+  "version": "0.0.0",
+  "description": "Parses some of the imdb pages",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt nodeunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmertk/imdb-scraping-node"
+  },
+  "keywords": [
+    "imdb",
+    "scraping",
+    "parse",
+    "scrape",
+    "movie"
+  ],
+  "author": "Gunay Mert Karadogan <mertkaradogan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gmertk/imdb-scraping-node/issues"
+  }
+}
