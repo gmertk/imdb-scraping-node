@@ -1,5 +1,5 @@
 {
-  "name": "imdb-parsing",
+  "name": "imdb-scraping",
   "version": "0.0.0",
   "description": "Parses some of the imdb pages",
   "private": "true",
