@@ -15,3 +15,18 @@ exports.movie = function (test) {
 		test.done();
 	});
 };
+
+exports.movie2 = function (test) {
+	var imdb_id = 'blabla';
+	imdb.searchMovie(imdb_id, function (err, movie) {
+		test.equal(movie.length, 1, "should return a movie but empty");
+		test.equal(movie[0].keywords.length, 0 );
+		test.equal(movie[0].actors.length, 0 );
+		test.equal(movie[0].aka_titles.length, 0 );
+		test.equal(movie[0].release_dates.length, 0 );
+		test.equal(movie[0].company_credits.length, 0 );
+		test.deepEqual(movie[0].business, {});
+
+		test.done();
+	});
+};

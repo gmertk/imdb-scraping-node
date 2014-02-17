@@ -16,14 +16,24 @@ function searchMovie (imdb_id, cb) {
 	async.eachLimit(endpoints, 2,
 		function (endpoint, callback){
 			request(endpoint.url(imdb_id), function (err, response, body) {
-				endpoint.jobs.forEach(function (job) {
-					result[job.key] = job.parse_method.call(null, body);
-				});
-				callback();
+				try {
+					if (!err) {
+						endpoint.jobs.forEach(function (job) {
+							result[job.key] = job.parse_method.call(null, body);
+						});
+					}
+					else {
+						console.log(err);
+					}
+				}
+				catch (e) {
+					console.log(e);
+				}
+				callback(); // don't pass an error so that other requests can be done		
 			});
 		}, function (err) {
 			if (err) {
-				cb(null, {'error':err.message});
+				cb({'error':err.message}, null);
 				return;
 			}
 			cb(null, [result]);
@@ -36,10 +46,22 @@ function searchActor (actor_id, callback) {
 
     var result = {};
     request(endpoint.url(actor_id), function (err, response, body) {
-        endpoint.jobs.forEach(function (job) {
-            result[job.key] = job.parse_method.call(null, body);
-        });
-        callback(null, [result]);
+			try {
+				if (!err) {
+					endpoint.jobs.forEach(function (job) {
+						result[job.key] = job.parse_method.call(null, body);
+					});
+					callback(null, [result]);
+				}
+				else {
+					cb({'error':err.message}, null);
+					return;
+				}
+			}
+			catch (e) {
+				console.log(e);
+				cb({'error':e.message}, null);
+			}	
     });
 }
 
