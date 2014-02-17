@@ -51,7 +51,7 @@ function searchActor (actor_id, callback) {
 					endpoint.jobs.forEach(function (job) {
 						result[job.key] = job.parse_method.call(null, body);
 					});
-					callback(null, [result]);
+					callback(null, result);
 				}
 				else {
 					cb({'error':err.message}, null);
