@@ -1,6 +1,6 @@
 {
   "name": "imdb-scraping",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parses some of the imdb pages",
   "private": "true",
   "main": "index.js",
